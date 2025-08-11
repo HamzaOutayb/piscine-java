@@ -1,4 +1,4 @@
-javapublic class ComputeArray {
+public class ComputeArray {
     public static int[] computeArray(int[] array) {
         if array == null {
             return null;
@@ -12,7 +12,9 @@ javapublic class ComputeArray {
                 res[i] = num * 5;
             } else if (num%3 == 1) {
                 res[i] = num + 7;
-            }
+            } else {
+res[i] = num;
+}
         }
         return res;
     }
