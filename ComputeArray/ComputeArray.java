@@ -12,9 +12,9 @@ public class ComputeArray {
                 res[i] = num * 5;
             } else if (num%3 == 1) {
                 res[i] = num + 7;
-            } else {
-res[i] = num;
-}
+            } else if (num%3 == 2) {
+            res[i] = num;
+        }
         }
         return res;
     }
