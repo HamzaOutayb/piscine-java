@@ -1,6 +1,6 @@
 public class ComputeArray {
     public static int[] computeArray(int[] array) {
-        if array == null {
+        if (array == null) {
             return null;
         }
 
