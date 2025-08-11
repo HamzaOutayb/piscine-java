@@ -1,4 +1,3 @@
-package IsEven;
 
 public class IsEven {
     public static boolean isEven(int a) {

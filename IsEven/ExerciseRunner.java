@@ -1,4 +1,3 @@
-package IsEven;
 
 public class ExerciseRunner {
 
