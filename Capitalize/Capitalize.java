@@ -14,7 +14,7 @@ public class Capitalize {
             String res = content.substring(0, 1).toUpperCase()+content.substring(1).toLowerCase();
             Files.write(Path.of(args[1]), res.getBytes());
         } catch(IOException error) {
-            return;
+            throw error;
         }
     }
 }
