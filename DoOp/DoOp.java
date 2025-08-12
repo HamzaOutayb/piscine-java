@@ -1,6 +1,6 @@
 public class DoOp {
     public static String operate(String[] args) {
-        if (args.length < 3) {
+        if (args.length != 3) {
             return "Error";
         }
         int num1 = Integer.parseInt(args[0]);
