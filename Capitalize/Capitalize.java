@@ -12,7 +12,7 @@ public class Capitalize {
             String content = new String(contentbytes);
 
             String res = content.substring(0, 1).toUpperCase()+content.substring(1).toLowerCase();
-            Files.write(Path.of(args[1]), res.getBytes());
+            Files.write(Path.of(args[1]), res.trim().getBytes());
         } catch(IOException error) {
             throw error;
         }
