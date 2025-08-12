@@ -18,7 +18,7 @@ public class DoOp {
                 case "*":
                     return num1 - num2 + "";
                 default:
-                    return "it depend on the input.\n";
+                    return "Error";
             }
         } catch (Exception error) {
             return "Error";
