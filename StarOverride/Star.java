@@ -33,14 +33,14 @@ public class Star extends CelestialObject {
     public String toString() {
         return String.format("%s shines at the %.3f magnitude)", super.getName(), this.getMagnitude());
     }
-
+    @Override
     public boolean equals(Object earth1) {
         if (earth1 == null || getClass() != earth1.getClass() || !super.equals(earth1)) return false;
         Star earth2 = (Star) earth1;
         return earth2.getMagnitude() == this.getMagnitude();
     }
-
+    @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), this.magnitude);
+        return Objects.hash(super.hashCode(), this.getMagnitude());
     }
 }
