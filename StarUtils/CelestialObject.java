@@ -72,6 +72,11 @@ public class CelestialObject {
     }
 
     public boolean equals(CelestialObject earth1) {
+        if (earth1 == null && this == null) {
+            return true;
+        } else if (earth1 != null && this == null || earth1 == null && this != null) {
+            return false;
+        }
         return this.x == earth1.x && this.y == earth1.y && this.z == earth1.z && this.name.equals(earth1.name);
     }
 
