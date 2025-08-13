@@ -68,7 +68,7 @@ public class CelestialObject {
     }
 
     public String toString() {
-        return "${this.name} is positioned at (  ${this.x}  ,   ${this.y}  ,   ${this.z}  )";
+        return String.format("%s is positioned at (%.2f, %.2f, %.2f)", name, x, y, z);
     }
 
     public boolean equals(CelestialObject earth1) {
@@ -81,7 +81,7 @@ public class CelestialObject {
     }
 
     public int hashCode() {
-    return Objects.hash(this.name, this.x, this.y, this.z);
+        return Objects.hash(this.name, this.x, this.y, this.z);
     }
 
 }
