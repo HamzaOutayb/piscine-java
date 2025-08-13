@@ -35,13 +35,9 @@ public class Star extends CelestialObject {
     }
 
     public boolean equals(Object earth1) {
-        if (earth1 == null && this == null) {
-            return true;
-        } else if (earth1 != null && this == null || earth1 == null && this != null) {
-            return false;
-        }
-        Star earth2 = (Star)earth1;
-        return this.getX() == earth2.getX() && this.getY() == earth2.getY() && this.getZ() == earth2.getZ() && this.getName().equals(earth2.getName()) && this.magnitude == earth2.getMagnitude();
+        if (earth1 == null || getClass() != earth1.getClass() || !super.equals(earth1)) return false;
+        Star earth2 = (Star) earth1;
+        return earth2.getMagnitude() == this.getMagnitude();
     }
 
     public int hashCode() {
