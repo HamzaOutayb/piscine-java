@@ -6,8 +6,8 @@ public class Planet extends CelestialObject{
         super();
         centerStar = new Star();
     }
-    public Planet(String name, double x, double y, double z, Star star) {
-        super(name, x, y, z);
+    public Planet(String name, double x, double y, double z, Star star, int mass) {
+        super(name, x, y, z, mass);
         centerStar = star;
     }
 

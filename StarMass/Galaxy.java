@@ -18,7 +18,7 @@ public class Galaxy {
     }
 
     public HashMap<String, Integer> computeMassRepartition() {
-        HashMap mymap = new HashMap<>();
+        HashMap<String, Integer>  mymap = new HashMap<>();
         mymap.put("Planet", 0);
         mymap.put("Star", 0);
         mymap.put("Other", 0);
@@ -36,5 +36,6 @@ public class Galaxy {
 
             }
         }
+        return mymap;
     }
 }
