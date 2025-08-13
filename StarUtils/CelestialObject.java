@@ -68,7 +68,7 @@ public class CelestialObject {
     }
 
     public String toString() {
-        return this.name + " is positioned at (" + this.x + ", " + this.y + ", " + this.z + ")";
+        return "${this.name} is positioned at (  ${this.x}  ,   ${this.y}  ,   ${this.z}  )";
     }
 
     public boolean equals(CelestialObject earth1) {
