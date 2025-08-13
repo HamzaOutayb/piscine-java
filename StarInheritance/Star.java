@@ -15,4 +15,7 @@ public class Star extends CelestialObject {
     public double getMagnitude() {
         return this.Magnitude;
     }
+    public double setMagnitude(double Magnitude) {
+        return this.Magnitude = Magnitude;
+    }
 }
