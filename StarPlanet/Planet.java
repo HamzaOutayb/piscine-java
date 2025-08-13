@@ -33,6 +33,6 @@ public class Planet extends CelestialObject{
     }
     @Override
     public String toString() {
-        return String.format("%s circles around %s at the %.3f AU", super.getName(), this.getName(), super.getDistanceBetween(this,this.getCenterStar()));
+        return String.format("%s circles around %s at the %.3f AU", super.getName(), this.getCenterStar().getName(), super.getDistanceBetween(this,this.getCenterStar()));
     }
 }
