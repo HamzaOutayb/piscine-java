@@ -18,13 +18,13 @@ public class CelestialObject {
         this.name = name;
     }
 
-    public Double getX() {
+    public double getX() {
         return this.x;
     }
-    public Double getY() {
+    public double getY() {
         return this.y;
     }
-    public Double getZ() {
+    public double getZ() {
         return this.z;
     }
     public String getName() {
