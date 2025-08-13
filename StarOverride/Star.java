@@ -32,7 +32,7 @@ public class Star extends CelestialObject {
     }
     @Override
     public String toString() {
-        return String.format("%s shines at the %.3f magnitude)", super.getName(), this.getMagnitude());
+        return String.format("%s shines at the %.3f magnitude", super.getName(), this.getMagnitude());
     }
     @Override
     public boolean equals(Object object) {
