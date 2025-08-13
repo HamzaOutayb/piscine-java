@@ -38,7 +38,7 @@ public class Star extends CelestialObject {
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass() || !super.equals(object)) return false;
         Star star = (Star) object;
-        return super.equals(star) && star.getMagnitude() == this.getMagnitude();
+        return  star.getMagnitude() == this.magnitude;
     }
     @Override
     public int hashCode() {
