@@ -35,10 +35,10 @@ public class Star extends CelestialObject {
         return String.format("%s shines at the %.3f magnitude)", super.getName(), this.getMagnitude());
     }
     @Override
-    public boolean equals(Object earth1) {
-        if (earth1 == null || getClass() != earth1.getClass() || !super.equals(earth1)) return false;
-        Star earth2 = (Star) earth1;
-        return super.equals(earth2) && earth2.getMagnitude() == this.getMagnitude();
+    public boolean equals(Object object) {
+        if (object == null || getClass() != object.getClass() || !super.equals(object)) return false;
+        Star star = (Star) object;
+        return super.equals(star) && star.getMagnitude() == this.getMagnitude();
     }
     @Override
     public int hashCode() {
