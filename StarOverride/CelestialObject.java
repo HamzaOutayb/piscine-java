@@ -71,12 +71,12 @@ public class CelestialObject {
         return String.format("%s is positioned at (%.3f, %.3f, %.3f)", this.name, this.x, this.y, this.z);
     }
 
-    public boolean equals(CelestialObject earth1) {
-        if (earth1 == null && this == null) {
-            return true;
-        } else if (earth1 != null && this == null || earth1 == null && this != null) {
+    public boolean equals(Object earth) {
+        CelestialObject earth1 = (CelestialObject)earth;
+        if (earth1 == null) {
             return false;
         }
+
         return this.x == earth1.x && this.y == earth1.y && this.z == earth1.z && this.name.equals(earth1.name);
     }
 
