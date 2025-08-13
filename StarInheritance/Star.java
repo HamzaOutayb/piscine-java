@@ -1,5 +1,6 @@
 public class Star extends CelestialObject {
-    private double Magnitude;
+    private double magnitude;
+
     public String getName() {
         return super.getName();
     }
@@ -13,9 +14,10 @@ public class Star extends CelestialObject {
         return super.getZ();
     }
     public double getMagnitude() {
-        return this.Magnitude;
+        return this.magnitude;
     }
-    public double setMagnitude(double Magnitude) {
-        return this.Magnitude = Magnitude;
-    }
+    public void setMagnitude(double Magnitude) {
+    this.magnitude = Magnitude;
+}
+
 }
