@@ -22,12 +22,7 @@ public class Sorcerer extends Character implements Healer {
 
     @Override
     public String toString() {
-        if (this.getCurrentHealth() == 0) {
-            return String.format("%s is a dead sorcerer. So bad, it could heal %d HP.", this.getName(),
-                    this.getHealCapacity());
-        }
-        return String.format("%s is a sorcerer with %d HP. It can heal %d HP.", this.getName(), this.getCurrentHealth(),
-                this.getHealCapacity());
+        return String.format("He has the weapon %s", this.getWeapon().toString());
     }
 
     @Override
@@ -38,11 +33,14 @@ public class Sorcerer extends Character implements Healer {
         }
         this.setCurrentHealth(this.getCurrentHealth()-take);
     }
-
     @Override
     public void attack(Character other) {
-        this.heal(this);
-        other.takeDamage(10);
+        if (this.getWeapon().getDamage() != 0) {
+            other.takeDamage(this.getWeapon().getDamage());
+        } else {
+            other.takeDamage(10);
+
+        }
     }
 
 }

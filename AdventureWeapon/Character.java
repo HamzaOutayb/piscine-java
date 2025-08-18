@@ -47,7 +47,9 @@ public abstract class Character {
         return Second;
 
     }
-
+    public Weapon getWeapon() {
+        return weapon;
+    }
     public String getName() {
         return this.name;
     }
@@ -66,10 +68,7 @@ public abstract class Character {
     
     @Override
     public String toString() {
-        if (this.currentHealth == 0) {
-            return String.format("%s : KO", this.getName());
-        }
-        return String.format("%s : %d/%d", this.getName(), this.getCurrentHealth(), this.getMaxHealth());
+        return String.format("He has the weapon %s", this.getWeapon().toString());
     }
 
     public abstract void takeDamage(int take);

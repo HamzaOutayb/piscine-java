@@ -29,12 +29,7 @@ public class Templar extends Character implements Healer, Tank {
 
     @Override
     public String toString() {
-        if (this.getCurrentHealth() == 0) {
-            return String.format("%s has been beaten, even with its %d shield. So bad, it could heal %d HP.",
-                    this.getName(), this.getShield(), this.healCapacity);
-        }
-        return String.format("%s is a strong Templar with %d HP. It can heal %d HP and has a shield of %d.",
-                this.getName(), this.getCurrentHealth(), this.getHealCapacity(), this.getShield());
+        return String.format("He has the weapon %s", this.getWeapon().toString());
     }
 
     @Override
@@ -50,8 +45,12 @@ public class Templar extends Character implements Healer, Tank {
 
     @Override
     public void attack(Character other) {
-        this.heal(this);
-        other.takeDamage(6);
+        if (this.getWeapon().getDamage() != 0) {
+            other.takeDamage(this.getWeapon().getDamage());
+        } else {
+            other.takeDamage(6);
+
+        }
     }
     /*
      * abstract void takeDamage(int take) {
