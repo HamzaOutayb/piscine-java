@@ -19,9 +19,9 @@ public class Sorcerer extends Character implements Healer {
 
     @Override
     public String toString() {
-        if (this.getHealCapacity() == 0) {
+         if (this.currentHealth == 0) {
+            return String.format("%s is a dead sorcerer. So bad, it could heal %d HP.", this.getName(), this.getHealCapacity());
+        } 
             return String.format("%s is a sorcerer with %d HP. It can heal %d HP.", this.getName(), this.getCurrentHealth(),this.getHealCapacity());
-        }
-        return String.format("%s is a dead sorcerer. So bad, it could heal %S HP.", this.getName(), this.getHealCapacity());
     }
 }
