@@ -70,7 +70,7 @@ public abstract class Character {
         return String.format("%s : %d/%d", this.getName(), this.getCurrentHealth(), this.getMaxHealth());
     }
 
-    abstract void takeDamage(int take);
+    public abstract void takeDamage(int take);
 
-    abstract void attack(Character other);
+    public abstract void attack(Character other);
 }
