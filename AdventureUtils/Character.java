@@ -77,4 +77,8 @@ public class Character {
     public void attack(Character other) {
         other.takeDamage(9);
     }
+
+    public void setCurrentHealth(int i) {
+         this.currentHealth = i;
+    }
 }
