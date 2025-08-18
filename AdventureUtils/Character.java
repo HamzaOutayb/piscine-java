@@ -21,7 +21,7 @@ public class Character {
             for (Character ch : allCharacters) {
                 res += " - "+ch.toString() + "\n";
             }
-            return res + "------------------------------------------";
+            return res + "------------------------------------------\n";
         }
 
         res += "Nobody's fighting right now !\n" +
