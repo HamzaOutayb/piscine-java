@@ -17,8 +17,9 @@ public class Character {
     public static String printStatus() {
         String res = "------------------------------------------\n";
         if (allCharacters.size() != 0) {
+            res += "Characters currently fighting :\n";
             for (Character ch : allCharacters) {
-                res += ch.toString() + "\n";
+                res += " - "+ch.toString() + "\n";
             }
             return res + "------------------------------------------";
         }
