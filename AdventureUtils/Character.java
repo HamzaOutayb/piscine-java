@@ -22,7 +22,7 @@ public class Character {
             for (Character ch : allCharacters) {
                 res += " - " + ch.toString() + "\n";
             }
-            return res + "------------------------------------------";
+            return res + "------------------------------------------\n";
         }
 
         return """
