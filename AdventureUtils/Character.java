@@ -15,18 +15,19 @@ public class Character {
     }
 
     public static String printStatus() {
-        String res = "------------------------------------------\n";
+        String res = "------------------------------------------\n" + //
+                        "Characters currently fighting :";
         if (allCharacters.size() != 0) {
-            res += "Characters currently fighting :\n";
             for (Character ch : allCharacters) {
                 res += " - "+ch.toString() + "\n";
             }
             return res + "------------------------------------------\n";
         }
-
-        res += "Nobody's fighting right now !\n" +
-                "------------------------------------------";
-        return res;
+        return """
+                ------------------------------------------
+                Nobody's fighting right now !
+                ------------------------------------------
+                """;
     }
 
     public static Character fight(Character first, Character Second) {
