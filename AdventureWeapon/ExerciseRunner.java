@@ -1,15 +1,14 @@
 public class ExerciseRunner {
 
     public static void main(String[] args) {
-        Templar alistair = new Templar("Alistair", 18, 2, 4);
-        Sorcerer morrigan = new Sorcerer("Morrigan", 21, 5);
-        Monster dragon = new Monster("Dragon", 12);
+        Weapon narsil = new Weapon("Narsil", 15);
+        Weapon baguette = new Weapon("Baguette magique", 20);
+        Weapon massue = new Weapon("Massue", 8);
+        Monster troll = new Monster("Troll", 30,  massue);
+        Sorcerer dumbledore = new Sorcerer("Dumbledore", 25, 5, baguette);
+        Templar alistair = new Templar("Alistair", 18, 2, 3, narsil);
 
-        dragon.attack(alistair);
-        dragon.attack(morrigan);
-        
-        alistair.attack(dragon);
-        morrigan.attack(dragon);
+        Character.fight(alistair, troll);
 
         System.out.println(Character.printStatus());
     }
