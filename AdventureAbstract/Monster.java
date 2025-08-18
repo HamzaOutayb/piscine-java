@@ -13,7 +13,7 @@ public class Monster extends Character {
 
     @Override
     public void takeDamage(int take) {
-        int reduced = (int)(take * 0.8);
+        int reduced = (int) (take * 80/100);
 
         if (reduced >= this.getCurrentHealth()) {
             this.setCurrentHealth(0);
