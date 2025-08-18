@@ -1,6 +1,6 @@
 public class Weapon {
-    public String name;
-    public int damage;
+    private String name;
+    private int damage;
 
     public Weapon(String name, int damage) {
         this.name = name;
