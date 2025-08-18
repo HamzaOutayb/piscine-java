@@ -22,6 +22,6 @@ public class Sorcerer extends Character implements Healer {
          if (this.currentHealth == 0) {
             return String.format("%s is a dead sorcerer. So bad, it could heal %d HP.", this.getName(), this.getHealCapacity());
         } 
-            return String.format("%s is a sorcerer with %d HP. It can heal %d HP.", this.getName(), this.getCurrentHealth(),this.getHealCapacity());
+            return String.format("%s is a sorcerer with %d HP. It can heal %d HP.", this.getName(), this.getHealCapacity(),this.getHealCapacity());
     }
 }
