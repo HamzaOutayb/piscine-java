@@ -15,20 +15,16 @@ public class Character {
     }
 
     public static String printStatus() {
-        String res = "------------------------------------------\n" +
-                "Characters currently fighting:\n";
-
-        if (!allCharacters.isEmpty()) {
-            for (Character ch : allCharacters) {
-                res += " - " + ch.toString() + "\n";
-            }
-            return res + "------------------------------------------\n";
+        if (allCharacters.size() == 0) {
+            return "------------------------------------------\nNobody's fighting right now !\n------------------------------------------\n";
         }
-
-        return """
-                ------------------------------------------
-                Nobody's fighting right now !
-                ------------------------------------------""";
+        String result = "------------------------------------------\n";
+        result += "Characters currently fighting :\n";
+        for (Character ch : Character.allCharacters) {
+            result += String.format(" - %s\n", ch.toString());
+        }
+        result += "------------------------------------------\n";
+        return result;
     }
 
     public static Character fight(Character first, Character Second) {
