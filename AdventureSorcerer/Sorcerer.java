@@ -1,5 +1,6 @@
 public class Sorcerer extends Character implements Healer {
     public int healCapacity;
+
     public Sorcerer(String name, int maxHealth, int healCapacity) {
         super(name, maxHealth);
         this.healCapacity = healCapacity;
@@ -12,16 +13,20 @@ public class Sorcerer extends Character implements Healer {
 
     @Override
     public void heal(Character c) {
-        if (c.getCurrentHealth() + getHealCapacity() <= c.getMaxHealth())  {
+        if (c.getCurrentHealth() + getHealCapacity() <= c.getMaxHealth()) {
             c.currentHealth = c.getCurrentHealth() + getHealCapacity();
+        } else {
+            c.currentHealth = c.getMaxHealth();
         }
     }
 
     @Override
     public String toString() {
-         if (this.currentHealth == 0) {
-            return String.format("%s is a dead sorcerer. So bad, it could heal %d HP.", this.getName(), this.getHealCapacity());
-        } 
-            return String.format("%s is a sorcerer with %d HP. It can heal %d HP.", this.getName(), this.getHealCapacity(),this.getHealCapacity());
+        if (this.currentHealth == 0) {
+            return String.format("%s is a dead sorcerer. So bad, it could heal %d HP.", this.getName(),
+                    this.getHealCapacity());
+        }
+        return String.format("%s is a sorcerer with %d HP. It can heal %d HP.", this.getName(), this.getCurrentHealth(),
+                this.getHealCapacity());
     }
 }
