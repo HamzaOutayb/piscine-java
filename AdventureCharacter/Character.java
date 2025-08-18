@@ -11,17 +11,22 @@ public class Character {
     public String getName() {
         return this.name;
     }
-
+    public int getmaxHealth() {
+        return this.maxHealth;
+    }
+    public int getcurrentHealth() {
+        return this.currentHealth;
+    }
     @Override
     public String toString() {
         if (this.currentHealth == 0) {
-            return String.format("%s : KO", this.name);
+            return String.format("%s : KO", this.getName());
         }
-        return String.format("%s : %d/%d", this.name, this.currentHealth,this.maxHealth);
+        return String.format("%s : %d/%d", this.getName(), this.getcurrentHealth(),this.getmaxHealth());
     }
 
     public void takeDamage(int take) {
-        if (take > currentHealth) {
+        if (take > this.getcurrentHealth()) {
             this.currentHealth = 0;
             return;
         }
