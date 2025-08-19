@@ -30,22 +30,22 @@ public abstract class Character {
     }
 
     public static Character fight(Character first, Character Second) {
-        while (first.getCurrentHealth() != 0 && Second.getCurrentHealth() != 0) {
-            try {
+        try {
+            while (true) {
                 first.attack(Second);
                 if (Second.getCurrentHealth() == 0) {
                     break;
                 }
-                
+
                 Second.attack(first);
                 if (first.getCurrentHealth() == 0) {
                     break;
                 }
-            } catch (DeadCharacterException d) {
-                return first;
             }
-     
+        } catch (DeadCharacterException d) {
+            return first;
         }
+
         if (Second.getCurrentHealth() == 0) {
             return first;
         }
