@@ -47,11 +47,11 @@ public class Sorcerer extends Character implements Healer {
 
     @Override
     public void attack(Character other) throws DeadCharacterException {
-        if (other.getCurrentHealth() == 0) {
-            throw new DeadCharacterException(other);
-        }
         if (this.getCurrentHealth() == 0) {
             throw new DeadCharacterException(this);
+        }
+        if (other.getCurrentHealth() == 0) {
+            throw new DeadCharacterException(other);
         }
         try {
             this.heal(this);
