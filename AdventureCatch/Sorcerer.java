@@ -24,10 +24,10 @@ public class Sorcerer extends Character implements Healer {
     public String toString() {
         if (this.getCurrentHealth() == 0) {
             return String.format("%s is a dead sorcerer. So bad, it could heal %d HP.", this.getName(),
-                    this.getHealCapacity())+String.format(" He has the weapon %s", this.getWeapon().toString());
+                    this.getHealCapacity()) + String.format(" He has the weapon %s", this.getWeapon().toString());
         }
         return String.format("%s is a sorcerer with %d HP. It can heal %d HP.", this.getName(), this.getCurrentHealth(),
-                this.getHealCapacity())+String.format(" He has the weapon %s", this.getWeapon().toString());
+                this.getHealCapacity()) + String.format(" He has the weapon %s", this.getWeapon().toString());
     }
 
     @Override
@@ -36,19 +36,20 @@ public class Sorcerer extends Character implements Healer {
             this.setCurrentHealth(0);
             throw new DeadCharacterException(this);
         }
-        this.setCurrentHealth(this.getCurrentHealth()-take);
+        this.setCurrentHealth(this.getCurrentHealth() - take);
     }
+
     @Override
     public void attack(Character other) throws DeadCharacterException {
         try {
-
+            this.heal(this);
             if (this.getWeapon().getDamage() != 0) {
                 other.takeDamage(this.getWeapon().getDamage());
             } else {
                 other.takeDamage(10);
-                
+
             }
-        }catch(DeadCharacterException d) {
+        } catch (DeadCharacterException d) {
             throw d;
         }
     }
