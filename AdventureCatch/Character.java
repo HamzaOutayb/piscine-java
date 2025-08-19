@@ -43,7 +43,7 @@ public abstract class Character {
                 }
             }
         } catch (DeadCharacterException d) {
-            return first;
+            return d.character;
         }
 
         if (Second.getCurrentHealth() == 0) {
