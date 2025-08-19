@@ -34,20 +34,17 @@ public abstract class Character {
             try {
                 first.attack(Second);
                 if (Second.getCurrentHealth() == 0) {
-                    return first;
+                    break;
+                }
+                
+                Second.attack(first);
+                if (first.getCurrentHealth() == 0) {
+                    break;
                 }
             } catch (DeadCharacterException d) {
                 return first;
             }
-            try {
-
-                Second.attack(first);
-                if (first.getCurrentHealth() == 0) {
-                    return Second;
-                }
-            } catch (DeadCharacterException d) {
-                return Second;
-            }
+     
         }
         if (Second.getCurrentHealth() == 0) {
             return first;
