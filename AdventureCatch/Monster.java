@@ -15,15 +15,11 @@ public class Monster extends Character {
 
     @Override
     public void takeDamage(int take) throws DeadCharacterException {
-        if (this.getCurrentHealth() == 0) {
-            throw new DeadCharacterException(this);
-        }
-
+        if (this.getCurrentHealth() == 0) throw new DeadCharacterException(this);
         int reduced = (int) (take * 80 / 100);
 
         if (reduced >= this.getCurrentHealth()) {
             this.setCurrentHealth(0);
-            throw new DeadCharacterException(this);
         } else {
             this.setCurrentHealth(this.getCurrentHealth() - reduced);
         }
@@ -34,18 +30,13 @@ public class Monster extends Character {
         if (this.getCurrentHealth() == 0) {
             throw new DeadCharacterException(this);
         }
-        if (other.getCurrentHealth() == 0) {
-            throw new DeadCharacterException(other);
-        }
-        try {
+
             if (this.getWeapon().getDamage() != 0) {
                 other.takeDamage(this.getWeapon().getDamage());
             } else {
                 other.takeDamage(7);
 
             }
-        } catch (DeadCharacterException d) {
-            throw d;
-        }
+
     }
 }

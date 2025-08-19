@@ -17,6 +17,7 @@ public class ExerciseRunner {
         } catch (DeadCharacterException e) {
             System.out.println(e.getMessage());
         }
+
         try {
             arthur.attack(merlin);
         } catch (DeadCharacterException e) {
