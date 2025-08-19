@@ -6,13 +6,19 @@ public class Monster extends Character {
     @Override
     public String toString() {
         if (this.getCurrentHealth() != 0) {
-            return String.format("%s is a monster with %d HP", this.getName(), this.getCurrentHealth())+String.format(". He has the weapon %s", this.getWeapon().toString());
+            return String.format("%s is a monster with %d HP", this.getName(), this.getCurrentHealth())
+                    + String.format(". He has the weapon %s", this.getWeapon().toString());
         }
-        return String.format("%s is a monster and is dead", this.getName())+String.format(". He has the weapon %s", this.getWeapon().toString());
+        return String.format("%s is a monster and is dead", this.getName())
+                + String.format(". He has the weapon %s", this.getWeapon().toString());
     }
 
     @Override
     public void takeDamage(int take) throws DeadCharacterException {
+        if (this.getCurrentHealth() == 0) {
+            throw new DeadCharacterException(this);
+        }
+
         int reduced = (int) (take * 80 / 100);
 
         if (reduced >= this.getCurrentHealth()) {
@@ -25,12 +31,18 @@ public class Monster extends Character {
 
     @Override
     public void attack(Character other) throws DeadCharacterException {
+        if (this.getCurrentHealth() == 0) {
+            throw new DeadCharacterException(this);
+        }
+        if (other.getCurrentHealth() == 0) {
+            throw new DeadCharacterException(other);
+        }
         try {
             if (this.getWeapon().getDamage() != 0) {
                 other.takeDamage(this.getWeapon().getDamage());
             } else {
                 other.takeDamage(7);
-                
+
             }
         } catch (DeadCharacterException d) {
             throw d;
