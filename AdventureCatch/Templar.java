@@ -14,7 +14,10 @@ public class Templar extends Character implements Healer, Tank {
     }
 
     @Override
-    public void heal(Character c) {
+    public void heal(Character c) throws DeadCharacterException {
+        if (c.getCurrentHealth() == 0) {
+            throw new DeadCharacterException(c);
+        }
         if (c.getCurrentHealth() + getHealCapacity() <= c.getMaxHealth()) {
             c.setCurrentHealth(c.getCurrentHealth() + getHealCapacity());
         } else {
@@ -51,7 +54,7 @@ public class Templar extends Character implements Healer, Tank {
     @Override
     public void attack(Character other) throws DeadCharacterException {
         try {
-
+            this.heal(this);
             if (this.getWeapon().getDamage() != 0) {
                 other.takeDamage(this.getWeapon().getDamage());
             } else {
@@ -62,17 +65,5 @@ public class Templar extends Character implements Healer, Tank {
             throw d;
         }
     }
-    /*
-     * abstract void takeDamage(int take) {
-     * if (take > this.getCurrentHealth()) {
-     * this.currentHealth = 0;
-     * return;
-     * }
-     * this.currentHealth -= take;
-     * }
-     * 
-     * abstract void attack(Character other) {
-     * other.takeDamage(9);
-     * }
-     */
+
 }
