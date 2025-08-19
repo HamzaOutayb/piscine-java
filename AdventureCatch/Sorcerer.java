@@ -41,12 +41,12 @@ public class Sorcerer extends Character implements Healer {
         if (this.getCurrentHealth() == 0)
             throw new DeadCharacterException(this);
 
-        if (take > this.getCurrentHealth()) {
+        if (take >= this.getCurrentHealth()) {
             this.setCurrentHealth(0);
+        }else {
+           this.setCurrentHealth(this.getCurrentHealth() - take);
         }
-        this.setCurrentHealth(this.getCurrentHealth() - take);
-        if (this.getCurrentHealth() == 0)
-            throw new DeadCharacterException(this);
+
 
     }
 
