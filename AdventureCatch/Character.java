@@ -29,15 +29,23 @@ public abstract class Character {
         return result;
     }
 
-    public static Character fight(Character first, Character Second) throws DeadCharacterException {
+    public static Character fight(Character first, Character Second) {
         while (first.getCurrentHealth() != 0 && Second.getCurrentHealth() != 0) {
-            first.attack(Second);
-            if (Second.getCurrentHealth() == 0) {
+            try {
+                first.attack(Second);
+                if (Second.getCurrentHealth() == 0) {
+                    return first;
+                }
+            } catch (DeadCharacterException d) {
                 return first;
             }
+            try {
 
-            Second.attack(first);
-            if (first.getCurrentHealth() == 0) {
+                Second.attack(first);
+                if (first.getCurrentHealth() == 0) {
+                    return Second;
+                }
+            } catch (DeadCharacterException d) {
                 return Second;
             }
         }
@@ -47,9 +55,11 @@ public abstract class Character {
         return Second;
 
     }
+
     public Weapon getWeapon() {
         return weapon;
     }
+
     public String getName() {
         return this.name;
     }
@@ -61,11 +71,11 @@ public abstract class Character {
     public int getCurrentHealth() {
         return this.currentHealth;
     }
-    
+
     protected void setCurrentHealth(int currentHealth) {
         this.currentHealth = currentHealth;
     }
-    
+
     @Override
     public String toString() {
         return String.format("He has the weapon %s", this.getWeapon().toString());
