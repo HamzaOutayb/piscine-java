@@ -37,6 +37,9 @@ public class Sorcerer extends Character implements Healer {
             throw new DeadCharacterException(this);
         }
         this.setCurrentHealth(this.getCurrentHealth() - take);
+        if (this.getCurrentHealth() == 0) {
+            throw new DeadCharacterException(this);
+        }
     }
 
     @Override
