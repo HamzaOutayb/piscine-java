@@ -1,4 +1,4 @@
 public interface Healer {
-     void heal(Character c);
+     void heal(Character c) throws DeadCharacterException;
      int getHealCapacity();
 }
