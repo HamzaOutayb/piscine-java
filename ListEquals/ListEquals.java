@@ -4,9 +4,10 @@ public class ListEquals {
     public static boolean areListsEqual(List<String> list1, List<String> list2) {
         if (list1 == null && list2 != null) {
             return false;
-        }
-        if (list2 == null && list1 != null) {
+        } else if (list2 == null && list1 != null) {
             return false;
+        } else if (list1 == null && list2 == null) {
+            return true;
         }
         return list1.equals(list2);
     }
