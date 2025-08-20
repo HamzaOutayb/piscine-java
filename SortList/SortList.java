@@ -5,6 +5,9 @@ import java.util.List;
 public class SortList {
 
     public static List<Integer> sort(List<Integer> list) {
+        if (list == null) {
+            return null;
+        }
         List<Integer> res = new ArrayList<>(list);
         for (int i = 0; i < res.size(); i++) {
             for (int j = i + 1; j < res.size(); j++) {
@@ -19,6 +22,9 @@ public class SortList {
     }
 
     public static List<Integer> sortReverse(List<Integer> list) {
+        if (list == null) {
+            return null;
+        }
         List<Integer> res = new ArrayList<>(list);
         res.sort(Collections.reverseOrder());
         return res;
