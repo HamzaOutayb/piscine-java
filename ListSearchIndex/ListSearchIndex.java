@@ -3,9 +3,9 @@ import java.util.List;
 
 public class ListSearchIndex {
     public static Integer findLastIndex(List<Integer> list, Integer value) {
-        if (list == null) {
-            return null;
-        }
+        // if (list == null) {
+        //     return null;
+        // }
         return list.lastIndexOf(value);
     }
 
