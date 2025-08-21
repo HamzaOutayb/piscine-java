@@ -10,7 +10,7 @@ public class KeepTheChange {
         Collections.reverse(coin);
         List<Integer> res = new ArrayList<>();
         for (Integer c : coin) {
-            while (amount-c > 0 && c <= amount) {
+            while (amount-c >= 0 && c <= amount) {
                 res.add(c);
                 amount -= c;
             }
