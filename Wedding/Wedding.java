@@ -9,8 +9,8 @@ public class Wedding {
         Map<String, String> map = new HashMap<>();
         List<String> list1 = new ArrayList<>(first);
         List<String> list2 = new ArrayList<>(second);
-        int max = Math.max(second.size(), first.size());
-        for (int i = 0; i < max; i++) {
+        int min = Math.min(second.size(), first.size());
+        for (int i = 0; i < min; i++) {
             map.put(list1.get(i), list2.get(i));
         }
         return map;
