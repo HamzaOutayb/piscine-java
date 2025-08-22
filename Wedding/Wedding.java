@@ -10,7 +10,7 @@ public class Wedding {
         List<String> list1 = new ArrayList<>(first);
         List<String> list2 = new ArrayList<>(second);
         int max = Math.max(second.size(), first.size());
-        for (int i = 0; i < second.size(); i++) {
+        for (int i = 0; i < max; i++) {
             map.put(list1.get(i), list2.get(i));
         }
         return map;
