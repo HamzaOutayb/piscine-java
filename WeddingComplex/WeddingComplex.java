@@ -1,25 +1,47 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class WeddingComplex {
-    public static Map<String, String> createBestCouple(Map<String, List<String>> first, Map<String, List<String>> second) {
-        Map<String, String> res = new HashMap<>();
-        
-        for (Map.Entry<String, List<String>> entry : first.entrySet()) {
-            String person = entry.getKey();
-            List<String> preferences = entry.getValue();
-            if (second.containsKey(person)) {
-                List<String> secondPreferences = second.get(person);
-                for (String preference : preferences) {
-                    if (secondPreferences.contains(preference)) {
-                        res.put(person, preference);
+    public static Map<String, String> createBestCouple(Map<String, List<String>> first,
+            Map<String, List<String>> second) {
+        Map<String, String> result = new HashMap<>();
+
+        for (String key : first.keySet()) {
+            for (String pref : first.get(key)) {
+                if (!result.containsValue(pref)) {
+                    result.put(key, pref);
+                    break;
+                } else {
+                    String otherHusband = findKeyByValue(result, pref);
+                    if (second.get(pref).indexOf(key) < second.get(pref).indexOf(otherHusband)) {
+                        result.put(key, pref);
+                        result.remove(otherHusband);
+
+                        for (String newPref : first.get(otherHusband)) {
+                            if (!result.containsValue(newPref)) {
+                                result.put(otherHusband, newPref);
+                                break;
+                            }
+                        }
                         break;
                     }
                 }
             }
+            // System.out.println(result);
+            // System.out.println(first.get(key));
         }
-        
-        return res;
+
+        return result;
+    }
+
+    public static String findKeyByValue(Map<String, String> map, String value) {
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            if (entry.getValue().equals(value)) {
+                return entry.getKey();
+            }
+        }
+        return null; // Return null if value is not found
     }
 }
