@@ -2,7 +2,7 @@ import java.io.IOException;
 
 public class ExerciseRunner {
     public static void main(String[] args) throws IOException {
-        System.out.println(RegexReplace.removeUnits("32cm"));
+        System.out.println(RegexReplace.removeUnits("15323cm et demi"));
         // System.out.println(RegexReplace.removeUnits("32 cm et 50 "));
         // System.out.println(RegexReplace.removeUnits("32cms et 50€!"));
         

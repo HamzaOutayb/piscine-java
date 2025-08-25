@@ -2,8 +2,9 @@ public class RegexReplace {
     public static String removeUnits(String s) {
         if (s == null)
             return null;
-        boolean cm = s.matches("(\\d+cm)( |$)");
-        boolean euro = s.matches("(\\d+€)( |$)");
+        boolean cm = s.matches("(\\d+cm)( |$).*");
+        boolean euro = s.matches("(\\d+€)( |$).*");
+        // System.out.println(cm);
         if (cm) {
             s = s.replaceAll("cm", "");
         }
