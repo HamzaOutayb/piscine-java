@@ -4,7 +4,6 @@ public class RegexReplace {
             return null;
         boolean cm = s.matches("(\\d+cm)( |$).*");
         boolean euro = s.matches("(\\d+€)( |$).*");
-        // System.out.println(cm);
         if (cm) {
             s = s.replaceAll("cm", "");
         }
@@ -18,22 +17,37 @@ public class RegexReplace {
         String[] slice = s.split("@");
         String username = slice[0];
         String[] otherpart = (slice[1]).split("\\.");
-        if (username.length() > 3) {
+
+        if (username.contains("-") || username.contains(".") || username.contains("_")) {
+            StringBuilder maskedUsername = new StringBuilder(username);
+            boolean delete = false;
+            for (int i = 0; i < maskedUsername.length(); i++) {
+                char c = maskedUsername.charAt(i);
+                if (delete) {
+
+                    maskedUsername.setCharAt(i, '*');
+                }
+                if (c == '.' || c == '-' || c == '_') {
+                delete = true;
+                }
+            }
+        } else if (username.length() > 3) {
             StringBuilder maskedUsername = new StringBuilder(username);
 
             for (int i = 3; i < username.length(); i++) {
                 maskedUsername.setCharAt(i, '*');
             }
+
             username = maskedUsername.toString();
         }
 
         if (otherpart.length == 2) {
             for (int i = 0; i < otherpart.length; i++) {
-                
                 StringBuilder domain = new StringBuilder(otherpart[i]);
-                     if (i == otherpart.length-1 && otherpart[i].equals("com") || otherpart[i].equals(".org") || otherpart[i].equals(".net")){
-                        continue;
-                    }
+                if (i == otherpart.length - 1
+                        && (otherpart[i].equals("com") || otherpart[i].equals("org") || otherpart[i].equals("net"))) {
+                    continue;
+                }
                 for (int j = 0; j < domain.length(); j++) {
                     domain.setCharAt(j, '*');
                 }
@@ -43,16 +57,18 @@ public class RegexReplace {
             for (int i = 0; i < otherpart.length; i++) {
                 StringBuilder domain = new StringBuilder(otherpart[i]);
                 if (i != 1) {
-                    if (i == otherpart.length-1 && otherpart[i].equals("com") || otherpart[i].equals(".org") || otherpart[i].equals(".net")){
+                    if (i == otherpart.length - 1 && (otherpart[i].equals("com") || otherpart[i].equals("org")
+                            || otherpart[i].equals("net"))) {
                         continue;
                     }
-                for (int j = 0; j < domain.length(); j++) {
+                    for (int j = 0; j < domain.length(); j++) {
                         domain.setCharAt(j, '*');
                     }
                 }
-                    otherpart[i] = domain.toString();
+                otherpart[i] = domain.toString();
             }
         }
         return username + "@" + String.join(".", otherpart);
     }
+
 }
