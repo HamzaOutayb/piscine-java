@@ -13,7 +13,7 @@ public class FormatDate {
     }
 
     public static String formatSimple(LocalDate date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd", Locale.ITALIAN);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM dd", Locale.ITALIAN);
         return date.format(formatter);
     }
 
