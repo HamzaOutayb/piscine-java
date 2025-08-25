@@ -16,7 +16,6 @@ public class RegexReplace {
     public static String obfuscateEmail(String s) {
         String[] slice = s.split("@");
         String username = slice[0];
-        String[] otherpart = (slice[1]).split("\\.");
 
         if (username.contains("-") || username.contains(".") || username.contains("_")) {
             StringBuilder maskedUsername = new StringBuilder(username);
@@ -41,35 +40,26 @@ public class RegexReplace {
 
             username = maskedUsername.toString();
         }
+        String domain = slice[1];
 
-        if (otherpart.length == 2) {
-            for (int i = 0; i < otherpart.length; i++) {
-                StringBuilder domain = new StringBuilder(otherpart[i]);
-                if (i == otherpart.length - 1
-                        && (otherpart[i].equals("com") || otherpart[i].equals("org") || otherpart[i].equals("net"))) {
-                    continue;
-                }
-                for (int j = 0; j < domain.length(); j++) {
-                    domain.setCharAt(j, '*');
-                }
-                otherpart[i] = domain.toString();
+        String[] dParts = domain.split("\\.");
+        if (dParts.length == 3) {
+            domain = "*******." + dParts[1] + ".***";
+        } else if (dParts.length == 2) {
+            String tld = dParts[1];
+            if (tld.equals("com") || tld.equals("org") || tld.equals("net")) {
+                domain = "*******." + tld;
+            } else {
+                domain = "*******.**";
             }
-        } else if (otherpart.length == 3) {
-            for (int i = 0; i < otherpart.length; i++) {
-                StringBuilder domain = new StringBuilder(otherpart[i]);
-                if (i != 1) {
-                    if (i == otherpart.length - 1 && (otherpart[i].equals("com") || otherpart[i].equals("org")
-                            || otherpart[i].equals("net"))) {
-                        continue;
-                    }
-                    for (int j = 0; j < domain.length(); j++) {
-                        domain.setCharAt(j, '*');
-                    }
-                }
-                otherpart[i] = domain.toString();
+        } else {
+            if (dParts.length > 2) {
+                domain = "*******." + dParts[1] + ".***";
+            } else {
+                domain = "*******." + (dParts.length == 1 ? "**" : dParts[dParts.length - 1]);
             }
         }
-        return username + "@" + String.join(".", otherpart);
+        return username + "@" + domain;
     }
 
 }
