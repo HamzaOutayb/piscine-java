@@ -17,6 +17,7 @@ public class ParseDate {
     }
 
     public static LocalTime parseTimeFormat(String stringDate) {
+        if (stringDate ==  null) return null;
       String newstringDate = stringDate.replace(" heures du soir, ", ":")
                 .replace(" heures du matin, ", ":")
                 .replace(" minutes et ", ":")
