@@ -24,13 +24,14 @@ public class RegexReplace {
             for (int i = 0; i < maskedUsername.length(); i++) {
                 char c = maskedUsername.charAt(i);
                 if (delete) {
-
+                    System.err.println(c);
                     maskedUsername.setCharAt(i, '*');
                 }
                 if (c == '.' || c == '-' || c == '_') {
                 delete = true;
                 }
             }
+            username = maskedUsername.toString();
         } else if (username.length() > 3) {
             StringBuilder maskedUsername = new StringBuilder(username);
 
