@@ -1,12 +1,14 @@
-import java.util.regex.Pattern;
-
 public class RegexReplace {
     public static String removeUnits(String s) {
         if (s == null)
             return null;
-        boolean itMatch = s.matches("(\\d+)cm.*(\\d+)€");
-        if (itMatch) {
-            s = s.replaceAll("cm", "").replaceAll("€", "");
+        boolean cm = s.matches("(\\d+)cm");
+        boolean euro = s.matches("(\\d+)€");
+        if (cm) {
+            s = s.replaceAll("cm", "");
+        }
+        if (euro) {
+            s = s.replaceAll("€", "");
         }
         return s;
     }
